@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author EDYKURNIAWAN
+ * @author WALIDHANIFATAULLAH
  */
 public class login extends javax.swing.JFrame {
     Connection koneksi;

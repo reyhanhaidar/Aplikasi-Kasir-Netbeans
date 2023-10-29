@@ -21,10 +21,10 @@ import java.util.Date;
 
 /**
  *
- * @author EDYKURNIAWAN
+ * @author WALIDHANIFATAULLAH
  */
 public class transaksi extends javax.swing.JFrame {
-Connection koneksi;
+Connection koneksi = database.koneksiDB();
 PreparedStatement pst, pst2;
 ResultSet rst;
 int istok, istok2, iharga, ijumlah, kstok, tstok;
@@ -75,7 +75,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
     
     public void cari(){
     try {
-        String sql="select * from barang where Nama_Barang LIKE '%"+jTextField1.getText()+"%'";
+        String sql="select * from barang where Nama_Makanan LIKE '%"+jTextField1.getText()+"%'";
         pst=koneksi.prepareStatement(sql);
         rst=pst.executeQuery();
         jTable1.setModel(DbUtils.resultSetToTableModel(rst));
@@ -100,7 +100,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
     public void tambah_stok(){
     tstok=ijumlah+istok2;
         try {
-        String update="update barang set Stok='"+tstok+"' where Kode_Barang='"+barang+"'";
+        String update="update barang set Stok='"+tstok+"' where Kode_Makanan='"+barang+"'";
         pst2=koneksi.prepareStatement(update);
         pst2.execute();
         }catch (Exception e){JOptionPane.showMessageDialog(null, e);}
@@ -108,7 +108,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
     
     public void ambil_stock(){
     try {
-    String sql="select * from barang where Kode_Barang='"+barang+"'";
+    String sql="select * from barang where Kode_Makanan='"+barang+"'";
     pst=koneksi.prepareStatement(sql);
     rst=pst.executeQuery();
     if (rst.next()) {    
@@ -227,7 +227,6 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -285,7 +284,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
         jPanel1.setBackground(java.awt.Color.gray);
 
         jLabel14.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
-        jLabel14.setText("Data Barang");
+        jLabel14.setText("Data Makanan");
         jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel14MouseClicked(evt);
@@ -397,7 +396,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
         jLabel1.setText("Form Transaksi");
 
         jLabel7.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
-        jLabel7.setText("Masukan Nama Barang");
+        jLabel7.setText("Masukan Nama Makanan");
 
         jLabel8.setText("Jumlah");
 
@@ -468,20 +467,12 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jButton6.setText("New");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-
         jLabel10.setText("Tambahkan");
 
         jLabel12.setText("Hapus");
 
         jLabel13.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
-        jLabel13.setText("Data Barang");
+        jLabel13.setText("Data Makanan");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -531,13 +522,8 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
                                         .addGap(18, 18, 18)
                                         .addComponent(jButton1)
                                         .addGap(34, 34, 34)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGap(26, 26, 26)
+                                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -600,9 +586,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton3)
                         .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(23, 23, 23)
@@ -631,11 +615,11 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
         try {
     int row=jTable1.getSelectedRow();
     String tabel_klik=(jTable1.getModel().getValueAt(row, 0).toString());
-    String sql="select * from barang where Kode_Barang='"+tabel_klik+"'";
+    String sql="select * from barang where Kode_Makanan='"+tabel_klik+"'";
     pst=koneksi.prepareStatement(sql);
     rst=pst.executeQuery();
     if (rst.next()) {
-    barang=rst.getString(("Kode_Barang"));    
+    barang=rst.getString(("Kode_Makanan"));    
     String stok=rst.getString(("Stok"));
     istok= Integer.parseInt(stok);
     harga=rst.getString(("Harga"));
@@ -653,8 +637,8 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
             else {diskon=jdis.getText();}
         String Kode_detail=jkod.getText();
         KD="D"+Kode_detail;
-            String sql="insert into detail_barang (Kode_Detail,Kode_Barang,Harga,Jumlah,Discount,Subtotal) value (?,?,?,?,?,?)";
-            String update="update barang set Stok='"+kstok+"' where Kode_Barang='"+barang+"'";
+            String sql="insert into detail_barang (Kode_Detail,Kode_Makanan,Harga,Jumlah,Discount,Subtotal) value (?,?,?,?,?,?)";
+            String update="update barang set Stok='"+kstok+"' where Kode_Makanan='"+barang+"'";
             pst=koneksi.prepareStatement(sql);
             pst2=koneksi.prepareStatement(update);
             pst.setString(1, KD);
@@ -685,7 +669,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
-            String sql="delete from detail_barang where Kode_Barang=?";
+            String sql="delete from detail_barang where Kode_Makanan=?";
             pst=koneksi.prepareStatement(sql);
             pst.setString(1, dbarang);
             pst.execute();
@@ -700,7 +684,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
         try {
     int row=jTable2.getSelectedRow();
     dbarang=(jTable2.getModel().getValueAt(row, 1).toString());
-    String sql="select * from detail_barang where Kode_Barang='"+dbarang+"'";
+    String sql="select * from detail_barang where Kode_Makanan='"+dbarang+"'";
     pst=koneksi.prepareStatement(sql);
     rst=pst.executeQuery();
     if (rst.next()) {   
@@ -723,21 +707,17 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
       cari();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        new subpopup().setVisible(true);
+        new Laporan().setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        new Barang().setVisible(true);
+        new Makanan().setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel14MouseClicked
 
@@ -789,7 +769,6 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

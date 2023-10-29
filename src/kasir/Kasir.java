@@ -7,7 +7,7 @@ package kasir;
 
 /**
  *
- * @author EDYKURNIAWAN
+ * @author WALIDHANIFATAULLAH
  */
 public class Kasir {
 
