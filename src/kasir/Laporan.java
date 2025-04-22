@@ -64,7 +64,7 @@ private javax.swing.JPanel chartPanel;
       };
     clock.start();
     }
-     public void tampilkanChart() {
+    public void tampilkanChart() {
     try {
         DefaultPieDataset dataset = new DefaultPieDataset();
 
@@ -90,7 +90,7 @@ private javax.swing.JPanel chartPanel;
     } catch (Exception e) {
         e.printStackTrace();
     }
-    
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
