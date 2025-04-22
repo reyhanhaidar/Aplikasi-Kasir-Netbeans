@@ -10,6 +10,15 @@
 <project name="Kasir" default="default" basedir=".">
     <description>Builds, tests, and runs the project Kasir.</description>
     <import file="nbproject/build-impl.xml"/>
+    <target name="sonar" depends="compile">
+        <exec executable="sonar-scanner">
+            <arg value="-Dsonar.projectKey=my-project-key"/>
+            <arg value="-Dsonar.sources=src"/>
+            <arg value="-Dsonar.java.binaries=build"/>
+            <arg value="-Dsonar.host.url=http://localhost:9000"/>
+        </exec>
+    </target>
+    
     <!--
 
     There exist several targets which are by default empty and which can be 
