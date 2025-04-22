@@ -32,7 +32,7 @@ Connection koneksi = database.koneksiDB();
 PreparedStatement pst;
 ResultSet rst;
 String tanggal,tanggal2, sql;
-private javax.swing.JPanel chartPanel;
+public javax.swing.JPanel chartPanel;
 private JDateChooser jDateChooser1;
 private JDateChooser jDateChooser2;
 private JDateChooser jDateChooser3;
@@ -50,6 +50,14 @@ private JDateChooser jDateChooser4;
         delay();
         
     }
+    public void setKoneksi(Connection koneksi) {
+    this.koneksi = koneksi;
+    }
+
+    public void setChartPanel(JPanel chartPanel) {
+        this.chartPanel = chartPanel;
+    }
+
     
     public void delay(){
     Thread clock=new Thread(){
