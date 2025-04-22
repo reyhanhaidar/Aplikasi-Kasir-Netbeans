@@ -121,7 +121,7 @@ public class History extends javax.swing.JFrame {
                     + "JOIN detail_barang db ON t.Kode_Detail = db.Kode_Detail "
                     + "JOIN barang b ON db.Kode_Makanan = b.Kode_Makanan "
                     + "ORDER BY t.Tanggal DESC, t.Jam "
-                    + "DESC"
+                    + "DESC";
 
             ResultSet rs = stmt.executeQuery(query);
 
