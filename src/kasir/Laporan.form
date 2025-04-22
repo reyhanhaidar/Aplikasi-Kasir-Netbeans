@@ -125,6 +125,9 @@
           <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel2MouseClicked"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="jpaenel13= new javax.swing.JPanel"/>
       </AuxValues>
