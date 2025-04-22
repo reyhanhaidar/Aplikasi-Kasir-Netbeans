@@ -152,6 +152,12 @@ public class History extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable TableHistory;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    // End of variables declaration//GEN-END:variables
     /**
      * @param args the command line arguments
      */
@@ -178,19 +184,12 @@ public class History extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(History.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new History().setVisible(true);
             }
         });
-    
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TableHistory;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    // End of variables declaration//GEN-END:variables
 }
