@@ -192,6 +192,7 @@ public class login extends javax.swing.JFrame {
             {  
                 JOptionPane.showMessageDialog(null, "Selamat Datang '"+jTextField1.getText()+"'"); 
                 new transaksi().setVisible(true);
+                new CekStokBarang().setViSIBLE(true);
                 dispose();
             }
                 } else {JOptionPane.showMessageDialog(null, "Username / password salah");
