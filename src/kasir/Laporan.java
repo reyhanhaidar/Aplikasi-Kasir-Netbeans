@@ -16,6 +16,10 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTextField;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -26,13 +30,18 @@ Connection koneksi = database.koneksiDB();
 PreparedStatement pst;
 ResultSet rst;
 String tanggal,tanggal2, sql;
+private javax.swing.JPanel chartPanel;
+
+
     /**
      * Creates new form subpopup
      */
     public Laporan() {
         initComponents();
         koneksi=database.koneksiDB();
+        tampilkanChart();
         delay();
+        
     }
     
     public void delay(){
@@ -53,6 +62,33 @@ String tanggal,tanggal2, sql;
       };
     clock.start();
     }
+     public void tampilkanChart() {
+    try {
+        DefaultPieDataset dataset = new DefaultPieDataset();
+
+        String query = "SELECT Tanggal, COUNT(*) as Jumlah FROM transaksi GROUP BY Tanggal";
+        pst = koneksi.prepareStatement(query);
+        rst = pst.executeQuery();
+
+        while (rst.next()) {
+            String tanggal = rst.getString("Tanggal");
+            int jumlah = rst.getInt("Jumlah");
+            dataset.setValue(tanggal, jumlah);
+        }
+
+        JFreeChart pieChart = ChartFactory.createPieChart("Jumlah Transaksi per Tanggal", dataset, true, true, false);
+        ChartPanel pieChartPanel = new ChartPanel(pieChart);
+        pieChartPanel.setPreferredSize(new java.awt.Dimension(480, 300));
+
+        chartPanel.removeAll();
+        chartPanel.setLayout(new java.awt.BorderLayout());
+        chartPanel.add(pieChartPanel, java.awt.BorderLayout.CENTER);
+        chartPanel.validate();
+        
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,6 +99,7 @@ String tanggal,tanggal2, sql;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpaenel13= new javax.swing.JPanel
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -71,6 +108,7 @@ String tanggal,tanggal2, sql;
         jPanel4 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jLabelCek = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -84,7 +122,6 @@ String tanggal,tanggal2, sql;
         jTextField9 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(886, 525));
 
         jPanel2.setBackground(java.awt.Color.gray);
 
@@ -142,7 +179,7 @@ String tanggal,tanggal2, sql;
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jLabel14)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
@@ -181,17 +218,26 @@ String tanggal,tanggal2, sql;
             }
         });
 
+        jLabelCek.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelCek.setText("Cek Stok");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabelCek)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jLabelCek)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64))
@@ -430,6 +476,7 @@ String tanggal,tanggal2, sql;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelCek;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

@@ -208,6 +208,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
         jLabel15 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
+        jLabelCek = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jTextField9 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -347,14 +348,27 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jLabelCek.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelCek.setText("Cek Stok");
+        jLabelCek.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelCekMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel14)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel14))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabelCek)))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -364,7 +378,9 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelCek)
+                .addGap(32, 32, 32))
         );
 
         jButton7.setText("Logout");
@@ -695,6 +711,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
      ambil_stock();
     }//GEN-LAST:event_jTable2MouseClicked
 
+    
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
       total();
       simpan();
@@ -706,7 +723,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
       jTextField1.setText("");
       cari();
     }//GEN-LAST:event_jButton5ActionPerformed
-
+    
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         
     }//GEN-LAST:event_jLabel15MouseClicked
@@ -720,15 +737,20 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
         new Makanan().setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel14MouseClicked
-
+    
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         new login().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
-
+    
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jLabelCekMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelCekMouseClicked
+        new CekStokBarang().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabelCekMouseClicked
 
     /**
      * @param args the command line arguments
@@ -784,6 +806,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabelCek;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
