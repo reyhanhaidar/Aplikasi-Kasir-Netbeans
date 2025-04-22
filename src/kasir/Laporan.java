@@ -21,6 +21,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
+import com.toedter.calendar.JDateChooser;
 
 /**
  *
@@ -32,7 +33,11 @@ PreparedStatement pst;
 ResultSet rst;
 String tanggal,tanggal2, sql;
 private javax.swing.JPanel chartPanel;
-    private JPanel jPanel13;
+private JDateChooser jDateChooser1;
+private JDateChooser jDateChooser2;
+private JDateChooser jDateChooser3;
+private JDateChooser jDateChooser4;
+
 
 
     /**
@@ -100,8 +105,6 @@ private javax.swing.JPanel chartPanel;
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        jPanel13= new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
