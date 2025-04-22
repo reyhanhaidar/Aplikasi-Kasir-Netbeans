@@ -16,18 +16,17 @@ import javax.swing.JTable;
  */
 public class HistoryTest {
     
-    public HistoryTest() {
-        @Test
-        public void testColumnNames() {
-            History history = new History();
-            JTable table = history.getTableHistory();
+        
+    @Test
+    public void testColumnNames() {
+        History history = new History();
+        JTable table = history.getTableHistory();
 
-            String[] expectedColumns = {"Nama", "Kode Transaksi", "Tanggal", "Jam", "Total"};
+        String[] expectedColumns = {"Nama", "Kode Transaksi", "Tanggal", "Jam", "Total"};
 
-            for (int i = 0; i < expectedColumns.length; i++) {
-                String actual = table.getColumnName(i);
-                assertEquals("Kolom ke-" + (i + 1) + " tidak sesuai", expectedColumns[i], actual);
-            }
+        for (int i = 0; i < expectedColumns.length; i++) {
+            String actual = table.getColumnName(i);
+            assertEquals("Kolom ke-" + (i + 1) + " tidak sesuai", expectedColumns[i], actual);
         }
     }
     
