@@ -129,7 +129,7 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jPanel2MouseClicked"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="jpaenel13= new javax.swing.JPanel"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="jpanel13= new javax.swing.JPanel"/>
       </AuxValues>
 
       <Layout>

@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -31,6 +32,7 @@ PreparedStatement pst;
 ResultSet rst;
 String tanggal,tanggal2, sql;
 private javax.swing.JPanel chartPanel;
+    private JPanel jPanel13;
 
 
     /**
@@ -99,7 +101,7 @@ private javax.swing.JPanel chartPanel;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jpaenel13= new javax.swing.JPanel
+        jPanel13= new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
