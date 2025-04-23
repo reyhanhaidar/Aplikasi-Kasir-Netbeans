@@ -28,7 +28,7 @@ public class CekStok extends JPanel {
 
     private void tampilkanData() {
         try {
-            try ( // Ganti ini dengan koneksi dari class koneksi kamu sendiri
+            try ( 
                     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nama_database", "user", "password")) {
                 Statement stmt = conn.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM barang");
