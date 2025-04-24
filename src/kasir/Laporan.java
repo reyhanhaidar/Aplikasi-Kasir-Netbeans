@@ -28,7 +28,17 @@ import com.toedter.calendar.JDateChooser;
  * @author WALIDHANIFATAULLAH
  */
 public class Laporan extends javax.swing.JFrame {
-Connection koneksi = database.koneksiDB();
+private Connection koneksi;
+    private JPanel chartPanel;
+
+    // New setter methods
+    public void setKoneksi(Connection koneksi) {
+        this.koneksi = koneksi;
+    }
+
+    public void setChartPanel(JPanel chartPanel) {
+        this.chartPanel = chartPanel;
+    }
 PreparedStatement pst;
 ResultSet rst;
 String tanggal,tanggal2, sql;
