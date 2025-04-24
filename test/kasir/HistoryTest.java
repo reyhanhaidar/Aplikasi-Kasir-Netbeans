@@ -7,7 +7,6 @@ package kasir;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import kasir.History;
 import javax.swing.JTable;
 
 /**
@@ -28,6 +27,16 @@ public class HistoryTest {
             String actual = table.getColumnName(i);
             assertEquals("Kolom ke-" + (i + 1) + " tidak sesuai", expectedColumns[i], actual);
         }
+    }
+    
+    @Test
+    public void testColumnSize() {
+        History history = new History();
+        JTable table = history.getTableHistory();
+        
+        int jumlahKolom = 5;
+        
+        assertEquals("Jumlah kolom tidak sesuai, kolom seharusnya berjumlah " + jumlahKolom, jumlahKolom, history.getTableHistory().getColumnCount());
     }
     
 }
