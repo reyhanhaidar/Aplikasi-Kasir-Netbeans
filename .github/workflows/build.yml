@@ -37,5 +37,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Test -Dsonar.projectName='Test'
-      - name: Verify Maven dependency availability
-        run: mvn dependency:get -Dartifact=org.jfree:jfreechart:1.5.3
+      - name: Clear Maven Cache
+        run: rm -rf ~/.m2/repository
