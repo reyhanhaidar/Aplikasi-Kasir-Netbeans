@@ -5,6 +5,7 @@
  */
 package kasir;
 
+import com.toedter.calendar.JDateChooser;
 import static java.lang.Thread.sleep;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +22,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
-import com.toedter.calendar.JDateChooser;
+
 
 /**
  *
