@@ -491,7 +491,7 @@ String harga, barang, dbarang, KD, jam, tanggal,ssub;
         jLabel13.setFont(new java.awt.Font("Agency FB", 1, 18)); // NOI18N
         jLabel13.setText("Data Makanan");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("History");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
