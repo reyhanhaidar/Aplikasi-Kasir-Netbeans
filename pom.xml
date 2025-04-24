@@ -8,8 +8,20 @@
   <dependency>
     <groupId>junit</groupId>
     <artifactId>junit</artifactId>
-    <version>4.11</version> <!-- Or whatever JUnit you're using. -->
+    <version>4.11</version>
+     <!-- Or whatever JUnit you're using. -->
 	</dependency>
+  <dependency>
+    <groupId>org.jfree</groupId>
+    <artifactId>jfreechart</artifactId>
+    <version>1.5. the added dependencies.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jfree</groupId>
+      <artifactId>jfreechart</artifactId>
+      <version>1.5. the added dependencies.3</version>
+    </dependency> 
+  
 </dependencies>
   
   <properties>
