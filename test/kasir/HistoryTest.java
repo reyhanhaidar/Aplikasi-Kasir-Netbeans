@@ -21,7 +21,7 @@ public class HistoryTest {
         History history = new History();
         JTable table = history.getTableHistory();
 
-        String[] expectedColumns = {"Nama", "Kode Transaksi", "Tanggal", "Jam", "Total"};
+        String[] expectedColumns = {"Nama Makanan", "Kode Transaksi", "Tanggal", "Jam", "Total"};
 
         for (int i = 0; i < expectedColumns.length; i++) {
             String actual = table.getColumnName(i);
