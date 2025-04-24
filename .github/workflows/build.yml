@@ -35,7 +35,7 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{   https://912f-113-192-31-223.ngrok-free.app }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Test -Dsonar.projectName='Test'
       - name: Clear Maven Cache
         run: rm -rf ~/.m2/repository
