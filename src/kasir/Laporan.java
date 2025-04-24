@@ -18,10 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.data.general.DefaultPieDataset;
+
 
 
 /**
@@ -35,10 +32,6 @@ public class Laporan extends javax.swing.JFrame {
     // New setter methods
     public void setKoneksi(Connection koneksi) {
         this.koneksi = koneksi;
-    }
-
-    public void setChartPanel(JPanel chartPanel) {
-        this.chartPanel = chartPanel;
     }
 PreparedStatement pst;
 ResultSet rst;
@@ -56,7 +49,6 @@ private JDateChooser jDateChooser4;
     public Laporan() {
         initComponents();
         koneksi=database.koneksiDB();
-        tampilkanChart();
         delay();
         
     }
@@ -79,33 +71,7 @@ private JDateChooser jDateChooser4;
       };
     clock.start();
     }
-    public void tampilkanChart() {
-    try {
-        DefaultPieDataset dataset = new DefaultPieDataset();
-
-        String query = "SELECT Tanggal, COUNT(*) as Jumlah FROM transaksi GROUP BY Tanggal";
-        pst = koneksi.prepareStatement(query);
-        rst = pst.executeQuery();
-
-        while (rst.next()) {
-            String tanggal = rst.getString("Tanggal");
-            int jumlah = rst.getInt("Jumlah");
-            dataset.setValue(tanggal, jumlah);
-        }
-
-        JFreeChart pieChart = ChartFactory.createPieChart("Jumlah Transaksi per Tanggal", dataset, true, true, false);
-        ChartPanel pieChartPanel = new ChartPanel(pieChart);
-        pieChartPanel.setPreferredSize(new java.awt.Dimension(480, 300));
-
-        chartPanel.removeAll();
-        chartPanel.setLayout(new java.awt.BorderLayout());
-        chartPanel.add(pieChartPanel, java.awt.BorderLayout.CENTER);
-        chartPanel.validate();
-        
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
