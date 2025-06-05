@@ -1,0 +1,29 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASS=
+      - DB_NAME=manj_keuangan
+    depends_on:
+      - db
+    develop:
+      watch:
+        - path: ./src
+          action: rebuild
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: yourpassword
+      MYSQL_DATABASE: manj_keuangan
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./manj_keuangan.sql:/docker-entrypoint-initdb.d/manj_keuangan.sql
+volumes:
+  db_data:
