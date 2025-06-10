@@ -10,4 +10,5 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jre AS runtime
 WORKDIR /app
 COPY --from=build /app/target/*.jar /app/app.jar
-CMD ["java", "-jar", "/app/app.jar"]
+CMD ["java", "-cp", "/app/app.jar", "kasir.Kasir"]
+

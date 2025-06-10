@@ -8,7 +8,14 @@ package kasir;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+
 import javax.swing.JOptionPane;
+
+import java.awt.GraphicsEnvironment;
+
+import kasir.CekStok;
+import kasir.database;
+import kasir.transaksi;
 
 /**
  *
@@ -192,7 +199,7 @@ public class login extends javax.swing.JFrame {
             {  
                 JOptionPane.showMessageDialog(null, "Selamat Datang '"+jTextField1.getText()+"'"); 
                 new transaksi().setVisible(true);
-                new CekStokBarang().setVisible(true);
+                new CekStok().setVisible(true);
                 dispose();
             }
                 } else {JOptionPane.showMessageDialog(null, "Username / password salah");
@@ -206,36 +213,18 @@ public class login extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+        if (!GraphicsEnvironment.isHeadless()) {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new login().setVisible(true);
                 }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            });
+        } else {
+            System.out.println("Headless environment detected. GUI will not run.");
+            // Optionally, provide CLI login alternative here
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new login().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -503,4 +503,8 @@ private JDateChooser jDateChooser4;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    public void tampilkanChart() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

@@ -47,7 +47,6 @@ public void setUp() throws Exception {
 
     // Mock komponen GUI (Swing)
     chartPanel = spy(new JPanel());
-    classUnderTest.setChartPanel(chartPanel);
 
     // Setup mock JDBC behavior
     when(mockKoneksi.prepareStatement(anyString())).thenReturn(mockPst);
