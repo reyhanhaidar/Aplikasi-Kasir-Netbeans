@@ -10,8 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-        run: docker build --file Dockerfile -t hafidnaoya/Aplikasi-Kasir-Netbeans:$(date +%Y%m%d) .
+        run: docker build --file Dockerfile -t hafidnaoya/aplikasi-kasir-netbeans:$(date +%Y%m%d) .
       - name: Log in to Docker Hub
         run: docker login -u hafidnaoya -p ${{ secrets.DOCKER_TOKEN }}
       - name: Push the Docker image
-        run: docker push hafidnaoya/Aplikasi-Kasir-Netbeans:$(date +%Y%m%d)
+        run: docker push hafidnaoya/aplikasi-kasir-netbeans:$(date +%Y%m%d)
